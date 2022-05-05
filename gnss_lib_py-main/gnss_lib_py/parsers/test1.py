@@ -32,6 +32,7 @@ baseline_df = pd.read_csv(baseline_path)
 
 # compute correctedPrM = rawPrM + satClkBiasM - isrbM - ionoDelayM - tropoDelayM
 df['corrected_pr_m'] = df['raw_pr_m'] + df['b_sat_m'] - df['intersignal_bias_m'] - df['iono_delay_m'] - df['tropo_delay_m']
+print(df['corrected_pr_m'] - df['pseudo']) # Note that we can just use the pseudo field of the df instead
 sample = df.sample(500)
 # plt.scatter(sample['raw_pr_m'], sample['corrected_pr_m'])
 # plt.show()
